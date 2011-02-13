@@ -1,0 +1,1 @@
+require 'oembed_provider'

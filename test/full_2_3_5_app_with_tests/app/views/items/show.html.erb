@@ -1,0 +1,21 @@
+<%= available_in_locales_for(@item) %>
+<%= needed_in_locales_for(@item, :lightbox => true) %>
+
+<p>
+  <b>Label:</b>
+  <%=h @item.label %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @item.value %>
+</p>
+
+<p>
+  <b>Locale:</b>
+  <%=h @item.locale %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
