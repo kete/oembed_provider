@@ -36,6 +36,9 @@ module OembedProvidable #:nodoc:
           cattr_accessor :providable_specs
           self.providable_specs = specs
 
+          cattr_accessor :oembed_version
+          self.oembed_version = OembedProvider.version
+
           cattr_accessor :providable_oembed_type
           self.providable_oembed_type = oembed_type
 
@@ -99,13 +102,15 @@ module OembedProvidable #:nodoc:
           self.optional_attributes_specs = method_specs_for(OembedProvider.optional_attributes)
 
           cattr_accessor :required_attributes_specs
-          self.required_attributes_specs = method_specs_for(OembedProvider.required_attributes[oembed_type] + [:version])
+          self.required_attributes_specs = method_specs_for(OembedProvider.required_attributes[oembed_type])
 
           # options are added to handle passing maxwidth and maxheight
           # relevant to oembed types photo, video, and rich
           # if they have a thumbnail, then these also much not be bigger
           # than maxwidth, maxheight
           def initialize(providable, options = {})
+            self.version = self.class.oembed_version
+
             # we set maxwidth, maxheight first
             # so subsequent calls to providable.send(some_method_name)
             # can use them to adjust their values

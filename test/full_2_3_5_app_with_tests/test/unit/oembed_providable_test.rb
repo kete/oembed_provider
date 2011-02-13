@@ -76,7 +76,6 @@ class OembedProvidableTest < ActiveSupport::TestCase
         should "match the OembedProvider defaults when there is no hash of overriding specs in the oembed_providable_as call" do
           assert Photo::OembedResponse.respond_to?(:required_attributes_specs)
           OembedProvider.required_attributes[:photo].each { |attr| @method_specs[attr] = attr }
-          @method_specs[:version] = :version
           assert_equal Photo::OembedResponse.required_attributes_specs, @method_specs
         end
 
@@ -90,7 +89,6 @@ class OembedProvidableTest < ActiveSupport::TestCase
           end
 
           OembedProvider.required_attributes[:rich].each { |attr| @method_specs[attr] = attr }
-          @method_specs[:version] = :version
           @method_specs[:html] = :description
           assert_equal RichItem::OembedResponse.required_attributes_specs, @method_specs
         end

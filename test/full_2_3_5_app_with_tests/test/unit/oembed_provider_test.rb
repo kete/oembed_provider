@@ -21,6 +21,10 @@ class OembedProviderTest < ActiveSupport::TestCase
       assert_equal OembedProvider.cache_age, age
     end
 
+    should "return version as 1.0 of oEmbed spec" do
+      assert_equal "1.0", OembedProvider.version
+    end
+
     should "have an array of base attribute keys" do
       base_attributes = [:provider_url,
                          :provider_name,
