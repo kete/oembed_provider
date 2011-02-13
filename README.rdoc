@@ -1,10 +1,71 @@
 = oembed_provider
 
-Description goes here.
+A Rails engine to answer oEmbed requests for application media asset models.
 
+In other words, this gem allows your application, after configuring the gem and the relevant models, to act as an oEmbed Provider by providing a controller that returns JSON or XML for a given oEmbed consumer request for the specified media asset.
+
+The gem creates one unified oEmbed endpoint for all the oEmbed provided models via OembedProviderController.
+
+This gem does not offer oEmbed consumer functionality.
+
+More details of oEmbed and its specification can be found at http://oembed.com/
+
+IMPORTANT: Currently only known to work with Rails 2.3.5. Feel free to fork and get working with later versions of Rails. I'll happily add this as long as it stills works with Rails 2.3.5.
+
+== Usage
+
+=== Installing Gem - !!!! Not Yet Released - build from source for time being
+
+  gem install oembed_provider
+
+=== Installing from Source
+
+  Get source from git and checkout submodules:
+    git clone http://github.com/kete/oembed_provider.git
+    cd oembed_provider
+    git submodule init
+    git submodule update
+
+  Installing Gem:
+    rake gemspec
+    gem build {generated gemspec file}
+    gem install {generated gem file}
+   
+    Running rake will check that you have the dependencies installed correctly.
+
+=== Declare your model oEmbed providable
+
+Simple examples:
+
+  include OembedProvidable
+  # the first argument to oembed_providable_as is required
+  # and is the oembed type, can be :photo, :video, :link, or :rich
+  oembed_providable_as :link
+
+If your model has methods that match the oEmbed method names relevant to your oembed type, you are done. Otherwise change your oembed_providable_as like so:
+
+  include OembedProvidable
+  oembed_providable_as :link, :title => :label
+
+The second argument is hash where keys are names of oembed attributes needed and the value is the name of model's method for giving the corresponding value. Adjust to suit. Of course, you may need to implement methods to give what oembed_provider expects for your oembed type.
+
+You'll also need to include logic in your methods that deals with maxheight and maxwidth if they are passed in as parameters to your oembed_response for photo, video, and rich types (for thumbnails for video and rich types).
+
+=== Get oEmbed requests
+
+A route is installed by the engine to answer requests at /oembed. It will answer json (when no format is specifed), json-p (callback and/or variable), and xml requests.
+
+== TODO:
+* a caching system
+   
 == Note on Patches/Pull Requests
  
 * Fork the project.
+* Make your feature addition or bug fix to a branch following this convention:
+  enhancement_[ticket #]_short_description
+  or
+  bugfix_[ticket #]_short_description
+  replace [ticket #] with ticket number from http://kete.lighthouseapp.com/projects/xxxx
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
   future version unintentionally.
@@ -14,4 +75,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 Walter McGinnis. See LICENSE for details.
+Copyright (c) 2011 Horowhenua Library Trust. See LICENSE for details.
