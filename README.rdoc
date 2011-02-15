@@ -10,6 +10,8 @@ This gem does not offer oEmbed consumer functionality.
 
 Project homepage: https://github.com/kete/oembed_provider
 
+Project issue tracker: http://kete.lighthouseapp.com/projects/69994-oembed_provider/
+
 More details of oEmbed and its specification can be found at http://oembed.com/
 
 IMPORTANT: Currently only known to work with Rails 2.3.5. Feel free to fork and get working with later versions of Rails. I'll happily add this as long as it stills works with Rails 2.3.5.
