@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{A Rails engine to answer oEmbed requests for application media asset models.}
     gem.description = %Q{A Rails engine to answer oEmbed requests for application media asset models. In other words, this gem allows your application, after configuring the gem and the relevant models, to act as an oEmbed Provider by providing a controller that returns JSON or XML for a given oEmbed consumer request for the specified media asset. This gem does not offer oEmbed consumer functionality. (Rails 2.3.5 only for now)}
     gem.email = "walter@katipo.co.nz"
-    gem.homepage = "http://github.com/kete/oembed_provider"
+    gem.homepage = "https://github.com/kete/oembed_provider"
     gem.authors = ["Walter McGinnis"]
     gem.add_dependency "addressable"
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
