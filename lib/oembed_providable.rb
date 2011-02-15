@@ -115,8 +115,8 @@ module OembedProvidable #:nodoc:
             # so subsequent calls to providable.send(some_method_name)
             # can use them to adjust their values
             unless type == :link
-              self.maxheight = options[:maxheight] if options[:maxheight].present?
-              self.maxwidth = options[:maxwidth] if options[:maxwidth].present?
+              self.maxheight = options[:maxheight].to_i if options[:maxheight].present?
+              self.maxwidth = options[:maxwidth].to_i if options[:maxwidth].present?
 
               providable.oembed_max_dimensions = { :height => maxheight, :width => maxwidth }
             end
