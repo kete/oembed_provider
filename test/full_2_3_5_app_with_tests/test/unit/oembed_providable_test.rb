@@ -114,6 +114,19 @@ class OembedProvidableTest < ActiveSupport::TestCase
       assert @photo.oembed_response
     end
 
+    should "have an oembed_max_dimensions object when maxheight and maxwidth are specified" do
+      maxheight = 400
+      maxwidth = 600
+      assert @photo.oembed_response(:maxheight => maxheight,
+                                    :maxwidth => maxwidth)
+      assert_equal maxheight, @photo.oembed_response.maxheight
+      assert_equal maxwidth, @photo.oembed_response.maxwidth
+
+      assert @photo.respond_to?(:oembed_max_dimensions)
+      assert_equal maxheight, @photo.oembed_max_dimensions[:height]
+      assert_equal maxwidth, @photo.oembed_max_dimensions[:width]
+    end
+
     context "has an oembed_response and" do
       setup do
         @response = @photo.oembed_response
