@@ -63,6 +63,7 @@ module OembedProvidable #:nodoc:
           # :type is required, but is model wide and set via oembed_providable_as
           # :version is required and is handled below
           attributes_to_define = OembedProvider.optional_attributes
+
           attributes_to_define += OembedProvider.required_attributes[oembed_type]
 
           # site wide values
@@ -123,7 +124,7 @@ module OembedProvidable #:nodoc:
 
             self.class.required_attributes_specs.each do |k,v|
               value = providable.send(v)
-              raise ArgumentError, "#{spec.key} is required for an oEmbed response." if value.blank?
+              raise ArgumentError, "#{k} is required for an oEmbed response." if value.blank?
 
               send(k.to_s + '=', value)
             end
@@ -188,14 +189,13 @@ module OembedProvidable #:nodoc:
       end
 
       def oembed_max_dimensions=(options)
+        options = { :height => nil, :width => nil } if options.blank?
         @oembed_max_dimensions = options
       end
 
       def oembed_max_dimensions
-        @oembed_max_dimensions
+        @oembed_max_dimensions || { :height => nil, :width => nil }
       end
-
     end
-
   end
 end

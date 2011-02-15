@@ -14,7 +14,7 @@ IMPORTANT: Currently only known to work with Rails 2.3.5. Feel free to fork and 
 
 == Usage
 
-=== Installing Gem - !!!! Not Yet Released - build from source for time being
+=== Installing Gem
 
   gem install oembed_provider
 
@@ -51,9 +51,31 @@ The second argument is hash where keys are names of oembed attributes needed and
 
 You'll also need to include logic in your methods that deals with maxheight and maxwidth if they are passed in as parameters to your oembed_response for photo, video, and rich types (for thumbnails for video and rich types).
 
+For :link type, unless you do webpage thumbnails, you'll want to do something like this:
+
+  %w(url height width).each do |method_stub|
+    define_method('thumbnail_' + method_stub) do
+      nil
+    end
+  end
+
+=== More complex example:
+
+Links to commits to how oembed_provider is used in Kete application (http://kete.net.nz) coming soon...
+
 === Get oEmbed requests
 
 A route is installed by the engine to answer requests at /oembed. It will answer json (when no format is specifed), json-p (callback and/or variable), and xml requests.
+
+=== Discoverability helper
+
+You can optionally add links to the HTML head of relevant pages by adding this to your appropriate helper modules (i.e. in something under app/helpers/ that suits):
+
+  include OembedProviderHelper
+
+and then adding this to the appropriate layout file (i.e. something under app/views/layout that matchs):
+
+  <%= oembed_provider_links %>
 
 == TODO:
 * a caching system

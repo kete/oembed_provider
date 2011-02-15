@@ -12,7 +12,7 @@ module OembedProviderHelper
                :title => "JSON oEmbed for #{@title}")
     html += tag(:link, :rel => "alternate",
                :type => "application/xml+oembed",
-               :href => "http://#{host_url}/oembed?url=#{escaped_request_url}&format=xml",
+               :href => "http://#{host_url}/oembed.xml?url=#{escaped_request_url}",
                :title => "XML oEmbed for #{@title}")
   end
 end
