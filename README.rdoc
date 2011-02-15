@@ -8,6 +8,8 @@ The gem creates one unified oEmbed endpoint for all the oEmbed provided models v
 
 This gem does not offer oEmbed consumer functionality.
 
+Project homepage: https://github.com/kete/oembed_provider
+
 More details of oEmbed and its specification can be found at http://oembed.com/
 
 IMPORTANT: Currently only known to work with Rails 2.3.5. Feel free to fork and get working with later versions of Rails. I'll happily add this as long as it stills works with Rails 2.3.5.
@@ -87,7 +89,7 @@ and then adding this to the appropriate layout file (i.e. something under app/vi
   enhancement_[ticket #]_short_description
   or
   bugfix_[ticket #]_short_description
-  replace [ticket #] with ticket number from http://kete.lighthouseapp.com/projects/xxxx
+  replace [ticket #] with ticket number from http://kete.lighthouseapp.com/projects/69994-oembed_provider
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
   future version unintentionally.
