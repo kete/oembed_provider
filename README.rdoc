@@ -83,7 +83,15 @@ and then adding this to the appropriate layout file (i.e. something under app/vi
 
 == TODO:
 * a caching system
-   
+
+=== Thank yous
+
+This gem was developed for the Kete open source application (http://kete.net.nz) and was funded by pledge campaign to improve media selection from with the rich text editor (i.e. the TinyMCE plugin).
+
+Horowhenua Library Trust, Wellington City Libraries, Te Reo o Taranaki, Environmental Earth Sciences, CALYX, and many individual contributors.
+
+Thanks to all contributors.
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
