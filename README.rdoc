@@ -37,6 +37,17 @@ IMPORTANT: Currently only known to work with Rails 2.3.5. Feel free to fork and 
    
     Running rake will check that you have the dependencies installed correctly.
 
+=== OembedProvider settings
+
+Add a config/initializers/oembed_provider.rb file with something like this:
+
+    OembedProvider.provider_name = "Your Site Name"
+    OembedProvider.provider_url = "http://your_site/"
+    
+    # if a controller doesn't map to model name as per tablize convention
+    # map it here
+    OembedProvider.controller_model_maps = { 'images' => 'StillImage' }
+
 === Declare your model oEmbed providable
 
 Simple examples:
