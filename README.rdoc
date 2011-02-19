@@ -76,7 +76,19 @@ For :link type, unless you do webpage thumbnails, you'll want to do something li
 
 === More complex example:
 
-Links to commits to how oembed_provider is used in Kete application (http://kete.net.nz) coming soon...
+In Kete, we use oembed_provider with the StillImage model which maps to the images controller (exact line number links may be inaccurate in future):
+
+https://github.com/kete/kete/blob/master/config/initializers/oembed_provider.rb#L11
+
+https://github.com/kete/kete/blob/master/lib/kete_common_oembed_support.rb
+
+https://github.com/kete/kete/blob/master/app/models/still_image.rb#L56
+
+https://github.com/kete/kete/blob/master/app/views/layouts/application.rhtml#L45
+
+https://github.com/kete/kete/blob/master/test/unit/still_image_test.rb#L135
+
+Functional and integration testing defers to the testing done in this gem.
 
 === Get oEmbed requests
 
