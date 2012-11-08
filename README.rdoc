@@ -1,6 +1,6 @@
 = oembed_provider
 
-A Rails engine to answer oEmbed requests for application media asset models.
+A Rails engine to answer oEmbed requests for application media asset models aimed at Rails 2.3.x. For Rails 3 and above, please see oembed_provider_engine (https://github.com/xing/oembed_provider_engine).
 
 In other words, this gem allows your application, after configuring the gem and the relevant models, to act as an oEmbed Provider by providing a controller that returns JSON or XML for a given oEmbed consumer request for the specified media asset.
 
